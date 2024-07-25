@@ -6,15 +6,14 @@ export default function HomePage() {
   const [data, setData] = useState([]);
   const handleHomePage = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/employee/");
+      const response = await axios.post("http://localhost:8000/employee/get");
       console.log(response.data);
 
       setData(response.data);
-
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
     handleHomePage();

@@ -9,6 +9,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate to={"/login"} />} />
+
         <Route path="/home" element={<HomePage />} />
 
         <Route path="/add-employee" element={<AddEmployeePage />} />
@@ -16,6 +18,8 @@ function App() {
         <Route path="/my-info" element={<MyInfoPage />} />
 
         <Route path="/login" element={<LoginPage />} />
+
+        {/* Input rute lain di sini */}
       </Routes>
     </BrowserRouter>
   );
