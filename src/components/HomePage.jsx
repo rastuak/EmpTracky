@@ -32,7 +32,7 @@ export default function HomePage() {
               className="text-white text-[20px] p-3 flex flex-col bg-[#737CCF] m-2 rounded-2xl"
             >
               <p>{employee.name}</p>
-              <p>{employee.div}</p>
+              <p>{employee.division}</p>
               <p>{employee.salary}</p>
             </li>
           ))}

@@ -1,10 +1,28 @@
 import { useState } from "react";
 import DashboardElement from "./elements/DashboardElement";
+import axios from 'axios';
 
 export default function AddEmployeePage() {
   const [name, setName] = useState("");
   const [division, setDivision] = useState("");
   const [salary, setSalary] = useState("");
+
+  const handleAddEmployee = async () => {
+    try {
+      const response = await axios.post('http://localhost:8000/employee/add', {
+        name,
+        division,
+        salary,
+      });
+
+      if(response.status !== 201) throw new Error("Add employee failed");
+
+      console.log(response.data);
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div className="bg-[#CED1DA] h-screen w-screen flex">
@@ -41,7 +59,7 @@ export default function AddEmployeePage() {
         </div>
 
         <div className="mx-auto mt-20">
-          <button className="bg-[#6F90AF] p-2 px-3 rounded-2xl">Add</button>
+          <button className="bg-[#6F90AF] p-2 px-3 rounded-2xl" onClick={handleAddEmployee}>Add</button>
         </div>
       </div>
     </div>

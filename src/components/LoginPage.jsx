@@ -11,11 +11,8 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const handleLogin = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/manager/login", {
-        name,
-        password,
-      });
-
+      const response = await axios.post("http://localhost:8000/manager/login", {name , password});
+      if(response.status !== 200) throw new Error("Login failed");
       console.log(response.data);
       navigate('/home');
     } catch (error) {
