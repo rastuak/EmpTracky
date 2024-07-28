@@ -1,6 +1,6 @@
-import { useState } from "react";
-import DashboardElement from "./elements/DashboardElement";
 import axios from 'axios';
+import { useState } from "react";
+import DashboardElement from "../components/ui/DashboardElement";
 
 export default function AddEmployeePage() {
   const [name, setName] = useState("");
@@ -15,7 +15,7 @@ export default function AddEmployeePage() {
         salary,
       });
 
-      if(response.status !== 201) throw new Error("Add employee failed");
+      if (response.status !== 201) throw new Error("Add employee failed");
 
       console.log(response.data);
 

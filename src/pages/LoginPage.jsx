@@ -1,8 +1,8 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-import DashboardElement from "./elements/DashboardElement";
+import DashboardElement from "../components/ui/DashboardElement";
 
 export default function LoginPage() {
   const [name, setName] = useState("");
@@ -11,8 +11,8 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/manager/login", {name , password});
-      if(response.status !== 200) throw new Error("Login failed");
+      const response = await axios.post("http://localhost:8000/manager/login", { name, password });
+      if (response.status !== 200) throw new Error("Login failed");
       console.log(response.data);
       navigate('/home');
     } catch (error) {

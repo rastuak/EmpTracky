@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-import homeIcon from "../../assets/home.svg";
-import addEmployeeIcon from "../../assets/addPerson.svg";
-import myInfoIcon from "../../assets/person.svg";
-import loginIcon from "../../assets/login.svg";
+import homeIcon from "../../assets/images/home.svg";
+import addEmployeeIcon from "../../assets/images/addPerson.svg";
+import myInfoIcon from "../../assets/images/person.svg";
+import loginIcon from "../../assets/images/login.svg";
 
 export default function DashboardElement() {
   const navigate = useNavigate();

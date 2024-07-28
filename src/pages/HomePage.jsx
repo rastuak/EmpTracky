@@ -1,6 +1,6 @@
-import DashboardElement from "./elements/DashboardElement";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import DashboardElement from "../components/ui/DashboardElement";
 
 export default function HomePage() {
   const [data, setData] = useState([]);
@@ -21,9 +21,10 @@ export default function HomePage() {
 
   return (
     <div className="bg-[#CED1DA] flex">
+
       <DashboardElement />
 
-      <div className="bg-[#798DC5] w-[1400px] h-[841px] m-auto rounded-2xl flex-1">
+      <div className="bg-[#798DC5] w-screen min-h-screen m-auto flex-1">
         <ol className="overflow-auto w-full">
           {data.map((employee, index) => (
             <li
@@ -40,26 +41,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-const data = [
-  {
-    name: "ABC",
-    div: "HR",
-    salary: "Rp 5000",
-  },
-  {
-    name: "JHK",
-    div: "HR",
-    salary: "Rp 5000",
-  },
-  {
-    name: "POI",
-    div: "HR",
-    salary: "Rp 5000",
-  },
-  {
-    name: "KKK",
-    div: "HR",
-    salary: "Rp 5000",
-  },
-];

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import DashboardElement from "./elements/DashboardElement";
+import DashboardElement from "../components/ui/DashboardElement";
 
-import employeeIcon from "../assets/employee.svg";
+import employeeIcon from "../assets/images/employee.svg";
 
 export default function MyInfoPage() {
   const [name, setName] = useState("");
