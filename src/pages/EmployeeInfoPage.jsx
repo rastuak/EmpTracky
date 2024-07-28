@@ -1,8 +1,11 @@
 import React from 'react'
+import DashboardElement from '../components/ui/DashboardElement'
 
 const EmployeeInfoPage = () => {
   return (
-    <div>EmployeeInfoPage</div>
+    <DashboardElement>
+      <h1>ini employee info</h1>
+    </DashboardElement>
   )
 }
 
