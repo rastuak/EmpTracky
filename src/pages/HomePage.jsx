@@ -1,6 +1,7 @@
+import { House, SignOut, UserCircle, UserPlus } from "@phosphor-icons/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import DashboardElement from "../components/ui/DashboardElement";
+import logo from "../assets/images/logoDashboard.svg";
 
 export default function HomePage() {
   const [data, setData] = useState([]);
@@ -20,23 +21,21 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="bg-[#CED1DA] flex">
-
-      <DashboardElement />
-
-      <div className="bg-[#798DC5] w-screen min-h-screen m-auto flex-1">
-        <ol className="overflow-auto w-full">
-          {data.map((employee, index) => (
-            <li
-              key={index}
-              className="text-white text-[20px] p-3 flex flex-col bg-[#737CCF] m-2 rounded-2xl"
-            >
-              <p>{employee.name}</p>
-              <p>{employee.division}</p>
-              <p>{employee.salary}</p>
-            </li>
-          ))}
-        </ol>
+    <div className="bg-emptracky-f1 min-h-screen w-screen font-poppins flex">
+      <div className="w-[15%] min-h-screen py-12 flex-row">
+        <div className="w-full flex justify-center">
+          <img src={logo} alt="logo" className="w-[80px]" />
+        </div>
+        <div>
+          <House size={32} className="text-emptracky-darkgray" />
+          <UserCircle size={32} className="text-emptracky-darkgray" />
+          <UserPlus size={32} className="text-emptracky-darkgray" />
+          <SignOut size={32} className="text-emptracky-darkgray" />
+        </div>
+      </div>
+      <div className="flex justify-center items-center w-full min-h-screen">
+        <div className="bg-[#f5f5f5] h-[90%] w-[95%] shadow-md">
+        </div>
       </div>
     </div>
   );
