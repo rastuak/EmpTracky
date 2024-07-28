@@ -9,7 +9,7 @@ export default function DashboardElement() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-[#2B2E63] h-screen w-[390px] flex flex-col py-8">
+    <div className="bg-[#2B2E63] h-screen w-[390px] flex flex-col py-8 font-poppins">
       <div className="flex ml-5" onClick={() => navigate("/my-info")}>
         <img src={myInfoIcon} />
 
