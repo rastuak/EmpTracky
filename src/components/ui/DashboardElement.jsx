@@ -7,8 +7,8 @@ export default function DashboardElement({children}) {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-emptracky-f1 min-h-screen w-screen font-poppins flex overflow-hidden">
-      <div className="w-[15%] min-h-screen py-12 px-4 relative">
+    <div className="bg-emptracky-f1 h-screen w-screen font-poppins flex overflow-hidden">
+      <div className="w-[15%] h-screen py-12 px-4 relative">
         <div className="w-full justify-center items-center h-[90%]">
           <div className="w-full flex justify-center">
             <img src={logo} alt="logo" className="w-[80px]" />
@@ -37,8 +37,8 @@ export default function DashboardElement({children}) {
           </div>
         </div>
       </div>
-      <div className="flex justify-left items-center w-full min-h-screen">
-        <div className="bg-[#f5f5f5] h-[90%] w-[98%] shadow-md rounded-[10px]">
+      <div className="flex justify-left items-center w-full min-h-screen overflow-hidden">
+        <div className="bg-[#f5f5f5] h-[90%] w-[98%] shadow-xl rounded-[10px] max-h-[91%] overflow-hidden text-emptracky-darkgray">
         {children}
         </div>
       </div>
