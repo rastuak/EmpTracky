@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 import AttendancePage from "./pages/AttendancePage";
 // import EmployeeInfoPage from "./pages/EmployeeInfoPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/attendance" element={<AttendancePage/>} />
         <Route path="*" element={<NotFound/>} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );
