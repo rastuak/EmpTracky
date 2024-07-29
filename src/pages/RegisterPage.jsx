@@ -1,46 +1,57 @@
 import React from 'react'
+import logo from "../assets/images/empTrackyLogo.svg"
 
 const RegisterPage = () => {
   return (
-  <div className="h-screen w-screen flex justify-center items-center bg-register overflow-hidden font-poppins">
-    <div>
-        <h1 className="text-emptracky-fd font-bold text-[64px]">EmpTracky</h1>
-    </div>
-
-    <div className="h-[800px] w-[583px] bg-emptracky-fd rounded-[20px] flex">
-
-      <div className="h-full  w-[60%] justify-center items-center p-12">
-          <h1 className="text-emptracky-blue font-bold text-[32px]">Register</h1> 
-        
-        <div className="p-8">
-          <h1 className="text-emptracky-darkgray text-[24px]">Full Name</h1>
-          <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
-          <h1 className="text-emptracky-darkgray text-[24px]">Email</h1>
-          <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
-          <h1 className="text-emptracky-darkgray text-[24px]">Phone Number</h1>
-          <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
-          <h1 className="text-emptracky-darkgray text-[24px]">Password</h1>
-          <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
-          <h1 className="text-emptracky-darkgray text-[24px]">Confirm Password</h1>
-          <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
-          
+    <div className="h-screen w-screen flex justify-center items-center bg-register overflow-hidden font-poppins gap-8">
+      <div className='w-[500px] flex flex-col justify-center items-center text-center text-emptracky-fd'>
+        <div className='flex gap-3'>
+          <img src={logo} />
+          <h1 className=" font-bold text-[64px]">EmpTracky</h1>
         </div>
-
-        <div className="p-8 ">
-          <button className="shadow-md w-full h-12 bg-emptracky-blue rounded-[50px]">
-          <h1 className="text-emptracky-f1 text-[24px]">Sign up</h1>
-          </button>
-
-        <div className="p-8">
-          <h1 className="text-emptracky-darkgray text-[20px]">Already have an account?</h1> 
-          
-        </div>
-    
-        </div>
+        <p className='text-3xl'>Save time and manage attendance more Efficiently</p>
       </div>
 
+      <div className="h-fit w-[583px] bg-emptracky-fd rounded-[20px] flex">
+
+        <div className="h-full w-full justify-center items-center p-12">
+          <div className='flex w-full justify-center items-center'>
+            <h1 className="text-emptracky-blue font-bold text-[32px] mb-2">Register</h1>
+          </div>
+
+          <div className="">
+            <h1 className="text-emptracky-darkgray text-[24px]">Full Name</h1>
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <h1 className="text-emptracky-darkgray text-[24px]">Email</h1>
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <h1 className="text-emptracky-darkgray text-[24px]">Phone Number</h1>
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <h1 className="text-emptracky-darkgray text-[24px]">Password</h1>
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <h1 className="text-emptracky-darkgray text-[24px]">Confirm Password</h1>
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+
+          </div>
+
+          <div className="w-full flex flex-col gap-3 justify-center items-center">
+            <button className="shadow-md w-full h-12 bg-emptracky-blue rounded-[50px] mt-7">
+              <h1 className="text-emptracky-f1 text-[24px]">Sign up</h1>
+            </button>
+
+            <h1 className="text-emptracky-darkgray text-[20px]">Already have an account?
+              <span className='text-emptracky-blue cursor-pointer'>Login here!</span>
+            </h1>
+
+            {/* <div className="flex flex-row gap-1 text-[20px]"> 
+              <h1 className="text-emptracky-darkgray ">Already have an account?</h1>
+              <h1 className='text-emptracky-blue'>Login here!</h1>
+            </div> */}
+
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
   )
 }
 

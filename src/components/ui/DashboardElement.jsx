@@ -37,8 +37,8 @@ export default function DashboardElement({children}) {
           </div>
         </div>
       </div>
-      <div className="flex justify-left items-center w-full min-h-screen overflow-hidden">
-        <div className="bg-[#f5f5f5] h-[90%] w-[98%] shadow-xl rounded-[10px] max-h-[91%] overflow-hidden text-emptracky-darkgray">
+      <div className="flex justify-left items-center w-full min-h-screen  ">
+        <div className="bg-[#f5f5f5] h-[90%] w-[98%] shadow-xl rounded-[10px] overflow-hidden max-h-[91%]  text-emptracky-darkgray relative">
         {children}
         </div>
       </div>

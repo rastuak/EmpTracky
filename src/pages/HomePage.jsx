@@ -22,7 +22,7 @@ export default function HomePage() {
 
   return (
     <DashboardElement>
-      <div className="flex-col w-full h-[15%] bg-home rounded-t-[10px] px-14 pt-5 pb-3 ">
+      <div className="flex-col w-full h-[17%] bg-gradient-to-b from-emptracky-blue to-emptracky-f7 rounded-t-[10px] px-14 pt-5 pb-3 ">
         <div className="flex justify-end gap-4">
           <div className="h-[44px] w-[44px] bg-white rounded-[12px] group hover:bg-emptracky-blue transition-all duration-200 hover:cursor-pointer">
             <Plus size={42} className="text-emptracky-blue group-hover:text-white transition-all duration-200" />
@@ -45,7 +45,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="flex-col px-14 pt-8 pb-3 max-h-[83%] overflow-y-auto ">
+      <div className="flex-col px-14 pt-8 pb-3 max-h-[81%] overflow-y-auto ">
         {
           datas?.map((data, index) => {
             return (
