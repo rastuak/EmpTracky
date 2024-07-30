@@ -7,13 +7,13 @@ const RegisterPage = () => {
 const navigate = useNavigate();
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-register overflow-hidden font-poppins gap-8">
+    <div className="h-screen w-screen flex justify-center items-center bg-no-repeat bg-cover bg-register overflow-hidden font-poppins gap-8">
       <div className='w-[500px] flex flex-col justify-center items-center text-center text-emptracky-fd'>
         <div className='flex gap-3'>
           <img src={logo} />
           <h1 className=" font-bold text-[64px]">EmpTracky</h1>
         </div>
-        <p className='text-3xl'>Save time and manage attendance more Efficiently</p>
+        <p className='text-3xl'>Save time and manage attendance more efficiently</p>
       </div>
 
       <div className="h-fit w-[583px] bg-emptracky-fd rounded-[20px] flex">
@@ -25,15 +25,15 @@ const navigate = useNavigate();
 
           <div>
             <h1 className="text-emptracky-darkgray text-[24px]">Full Name</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
             <h1 className="text-emptracky-darkgray text-[24px]">Email</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
             <h1 className="text-emptracky-darkgray text-[24px]">Phone Number</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
             <h1 className="text-emptracky-darkgray text-[24px]">Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
             <h1 className="text-emptracky-darkgray text-[24px]">Confirm Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px]" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
 
           </div>
 
