@@ -31,7 +31,7 @@ export default function DashboardElement({children}) {
           <img src={line} className="mt-6 mb-4" />
         </div>
         <div className="flex w-full justify-center">
-          <div className="p-1 pr-3 rounded-md flex gap-2 text-emptracky-red hover:text-emptracky-fd hover:bg-emptracky-red hover:cursor-pointer w-fit transition-all duration-200">
+          <div className="p-1 pr-3 rounded-md flex gap-2 text-emptracky-red hover:text-emptracky-fd hover:bg-emptracky-red hover:cursor-pointer w-fit transition-all duration-200"onClick={() => navigate("/login")} >
             <SignOut size={32} />
             <p className="mt-1">Sign out</p>
           </div>
