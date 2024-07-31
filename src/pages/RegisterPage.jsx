@@ -3,12 +3,15 @@ import { House, SignOut, UserCircle, UserPlus } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/empTrackyLogo.svg"
 
+
 const RegisterPage = () => {
 const navigate = useNavigate();
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-no-repeat bg-cover bg-register overflow-hidden font-poppins gap-8">
-      <div className='w-[500px] flex flex-col justify-center items-center text-center text-emptracky-fd'>
+    <div overflow-hidden font-poppins gap-12>
+    <div className="h-screen w-screen flex justify-center items-center bg-no-repeat bg-cover bg-register ">
+  
+      <div className='w-[500px] justify-center items-center text-center text-emptracky-fd hidden rounded-l-[20px] md:block object-cover'>
         <div className='flex gap-3'>
           <img src={logo} />
           <h1 className=" font-bold text-[64px]">EmpTracky</h1>
@@ -24,16 +27,16 @@ const navigate = useNavigate();
           </div>
 
           <div>
-            <h1 className="text-emptracky-darkgray text-[24px]">Full Name</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <h1 className="text-emptracky-darkgray text-[24px]">Userame</h1>
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-[24px]">Email</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-[24px]">Phone Number</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-[24px]">Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-[24px]">Confirm Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
 
           </div>
 
@@ -59,6 +62,9 @@ const navigate = useNavigate();
 
       </div>
     </div>
+    </div>
+  
+    
   )
 }
 

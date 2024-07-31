@@ -36,7 +36,7 @@ export default function HomePage() {
           <FunnelSimple size={42} className="text-white" />
           <div className='flex justify-end items-center w-[7%]'>
             <select className="w-full h-[70%] rounded-md text-[#807F7F] hover:bg-gray-200 transition-all duration-200 focus:outline-none hover:cursor-pointer">
-              <option value="">Sort by.....</option>
+              <option value="name"></option>
               <option value="name">Name</option>
               <option value="division">Division</option>
               <option value="contract">Contract</option>

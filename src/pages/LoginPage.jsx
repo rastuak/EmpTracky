@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
-import DashboardElement from "../components/ui/DashboardElement";
+import login from "../assets/images/bgLogin.svg"
+import { Eye, EyeSlash } from "@phosphor-icons/react";
 
 export default function LoginPage() {
   const [name, setName] = useState("");
@@ -21,18 +22,23 @@ export default function LoginPage() {
 
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-gradient-to-l from-[#619DC2] to-emptracky-f5 overflow-hidden font-poppins">
-      <div className="h-[70%] w-[50%] bg-emptracky-fd rounded-[20px] flex">
-        <div className="h-full  w-[40%] bg-login rounded-l-[20px]"/>
-        <div className="h-full  w-[60%] justify-center items-center p-12 mt-6">
+    <div className="min-h-screen  flex justify-center items-center bg-gradient-to-l from-[#619DC2] to-emptracky-f5 overflow-hidden font-poppins">
+      <div className=" relative flex flex-col m-6 space-y-8 bg-emptracky-fd rounded-[20px] md:flex-row">
+        <div className="relative">
+          <img src={login}
+          className="w-full h-full hidden rounded-l-[20px] md:block object-cover"/>
+
+        </div>
+
+        <div className="h-full  w-[60%] p-12 m-6 space-y-8 flex flex-col">
             <h1 className="text-emptracky-blue font-bold text-[32px]">WELCOME BACK!</h1>
             <h1 className="text-emptracky-darkgray text-[24px] mb-10">Please login to your account</h1>  
           
           <div>
-            <h1 className="text-emptracky-darkgray text-[24px]">Email</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <h1 className="text-emptracky-darkgray text-[24px]">Username</h1>
+            <input className="shadow-md border border-emptracky-blue w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 outline-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-[24px] mt-4">Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+            <input className="shadow-md border border-emptracky-blue w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 outline-emptracky-blue" />
             
           </div>
 
