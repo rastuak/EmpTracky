@@ -42,7 +42,7 @@ const navigate = useNavigate();
 
           <div className="w-full flex flex-col gap-3 justify-center items-center">
             <button className="shadow-md w-full h-12 bg-emptracky-blue rounded-[50px] mt-7">
-              <h1 className="text-emptracky-f1 text-[28px]" onClick={() => navigate("/login")}>Sign up</h1>
+              <h1 className="text-emptracky-f1 text-[26px]" onClick={() => navigate("/login")}>Sign up</h1>
             </button>
 
             <h1 className="text-emptracky-darkgray text-[20px] ">Already have an account?
