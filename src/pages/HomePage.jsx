@@ -50,16 +50,16 @@ export default function HomePage() {
           datas?.map((data, index) => {
             return (
               <div key={index} className="flex justify-between w-full h-14 bg-emptracky-f7 border border-emptracky-darkgray rounded-[15px] mb-6 px-4 hover:border-emptracky-blue hover:text-emptracky-blue hover:cursor-pointer transition-all duration-200">
-                <div className="flex justify-start items-center text-lg max-w-[20%] overflow-hidden">
+                <div className="flex justify-start items-center md:text-lg max-w-[20%] overflow-hidden text-md">
                   <h1>{data.name}</h1>
                 </div>
                 <div className="flex h-full max-w-[80%] items-center">
                   <div className="h-full w-48 flex-col overflow-hidden">
-                    <h1 className="font-medium">Division:</h1>
+                    <h1 className="font-medium md:block hidden">Division:</h1>
                     <p>{data.division}</p>
                   </div>
                   <div className="h-full w-60 flex-col overflow-hidden">
-                    <h1 className="font-medium">Contract Expiry Year:</h1>
+                    <h1 className="font-medium md:block hidden">Contract Expiry Year:</h1>
                     <p>{data.contract}</p>
                   </div>
                 </div>

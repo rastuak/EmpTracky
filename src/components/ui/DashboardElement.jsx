@@ -17,15 +17,15 @@ export default function DashboardElement({children}) {
           <div className="text-emptracky-darkgray font-semibold">
             <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/home")}>
               <House size={32} />
-              <p className="mt-1">Home</p>
+              <p className="mt-1 md:block hidden">Home</p>
             </div>
             <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/my-info")}>
               <UserCircle size={32} />
-              <p className="mt-1">My Info</p>
+              <p className="mt-1 md:block hidden">My Info</p>
             </div>
             <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/add-employee")}>
               <UserPlus size={32} />
-              <p className="mt-1">Add Employee</p>
+              <p className="mt-1 md:block hidden">Add Employee</p>
             </div>
           </div>
           <img src={line} className="mt-6 mb-4" />
