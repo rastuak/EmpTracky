@@ -34,15 +34,15 @@ const DeleteEmployeeModal = ({ isVisible, onClose, id }) => {
 
   return (
     <div onClick={handleClose} id='wrapper' className='fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-      <div className='w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
+      <div className='w-[85%] md:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
         <div className='w-full h-fit flex'>
           <button onClick={() => onClose()} className='w-fit'>
             <Backspace size={24} />
           </button>
-          <h1 className='w-full text-center text-3xl'>Edit employee details</h1>
+          <h1 className='w-full text-center text-2xl md:text-3xl'>Delete this employee?</h1>
         </div>
         <div className='w-full h-full mt-10 text-center justify-center items-center'>
-          <p className='text-xl'>Are you sure want to delete this employee??</p>
+          <p className='text-lg md:text-xl mb-4'>Are you sure want to delete this employee??</p>
           <Button onClick={handleDeleteEmployee} title="Delete permanently" bgColor='emptracky-red' textColor='emptracky-fd' />
           </div>
       </div>

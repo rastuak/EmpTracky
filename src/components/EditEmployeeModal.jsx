@@ -23,6 +23,7 @@ const EditEmployeeModal = ({ isVisible, onClose, id }) => {
     const salary = document.getElementById("salary").value;
     const contract = document.getElementById("contract").value;
     try {
+      if (!birth || !division || !position || !salary || !contract) throw new Error("Please fill all fields");
       const response = await axios.put(`http://localhost:8000/employee/${id}`, {
         birth: birth,
         division: division,
@@ -46,14 +47,14 @@ const EditEmployeeModal = ({ isVisible, onClose, id }) => {
 
   return (
     <div onClick={handleClose} id='wrapper' className='fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-      <div className='w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
+      <div className='w-[85%] md:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
         <div className='w-full h-fit flex'>
           <button onClick={() => onClose()} className='w-fit'>
             <Backspace size={24} />
           </button>
-          <h1 className='w-full text-center text-3xl'>Edit employee details</h1>
+          <h1 className='w-full text-center text-xl md:text-3xl'>Edit employee details</h1>
         </div>
-        <form onSubmit={handleEditEmployee} className='px-8'>
+        <form onSubmit={handleEditEmployee} className='px-8 text-md md:text-xl'>
           <div className='flex flex-col gap-4'>
             <EditInput title="Birthdate" type="date" id="birth" />
             <EditInput title="Division" type="text" id="division" />

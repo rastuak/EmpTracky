@@ -21,16 +21,16 @@ export default function DashboardElement({ children }) {
             <img src={line} className="mt-6 mb-4" />
             <div className="text-emptracky-darkgray font-semibold">
               <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/home")}>
-                <House size={32} />
-                <p className="mt-1 hidden md:block">Home</p>
+                <House size={32} className="md:w-24 lg:w-fit"/>
+                <p className="mt-1 hidden lg:block">Home</p>
               </div>
               <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/my-info")}>
-                <UserCircle size={32} />
-                <p className="mt-1 hidden md:block">My Info</p>
+                <UserCircle size={32} className="md:w-24 lg:w-fit"/>
+                <p className="mt-1 hidden lg:block">My Info</p>
               </div>
               <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/add-employee")}>
-                <UserPlus size={32} />
-                <p className="mt-1 hidden md:block">Add Employee</p>
+                <UserPlus size={32} className="md:w-24 lg:w-fit"/>
+                <p className="mt-1 hidden lg:block">Add Employee</p>
               </div>
             </div>
             <img src={line} className="mt-6 mb-4" />
@@ -43,7 +43,7 @@ export default function DashboardElement({ children }) {
           </div>
         </div>
         <div className="flex justify-left items-center w-full min-h-screen  ">
-          <div className="bg-[#f5f5f5] h-[90%] w-[98%] shadow-xl rounded-[10px] overflow-hidden max-h-[91%]  text-emptracky-darkgray relative">
+          <div className="bg-emptracky-f5 h-[90%] w-[80%] md:w-[98%] shadow-xl rounded-[10px] overflow-hidden text-emptracky-darkgray relative">
             {children}
           </div>
         </div>

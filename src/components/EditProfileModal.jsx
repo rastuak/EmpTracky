@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { EditInput } from './ui/EditInput';
+import Button from './ui/Button';
 
 const EditProfileModal = ({ isVisible, onClose, id }) => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
     const gender = document.getElementById("gender").value;
     const phone = document.getElementById("phone").value;
     try {
+      if(!birth || !division || !position || !company || !gender || !phone) throw new Error("Please fill all the fields");
       const response = await axios.put(`http://localhost:8000/users/${id}`, {
         birth: birth,
         company: company,
@@ -47,14 +49,14 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
 
   return (
     <div onClick={handleClose} id='wrapper' className='fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-      <div className='w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
+      <div className='w-[85%] md:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
         <div className='w-full h-fit flex'>
           <button onClick={() => onClose()} className='w-fit'>
             <Backspace size={24} />
           </button>
           <h1 className='w-full text-center text-3xl'>Edit your details</h1>
         </div>
-        <form onSubmit={handleEditProfile} className='px-8'>
+        <div className='px-8 text-md md:text-xl'>
           <div className='flex flex-col gap-4'>
             <EditInput title="Birthdate" type="date" id="birth"/>
             <EditInput title="Company name" type="text" id="company"/>
@@ -68,11 +70,9 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
                 <option>Female</option>
               </select>
             </div>
-            <div className='flex justify-end'>
-              <button onClick={handleEditProfile} className='bg-emptracky-blue p-2 rounded-lg'>Save changes</button>
-            </div>
+            <Button title='Save changes' bgColor='emptracky-blue' textColor='emptracky-fd' onClick={handleEditProfile}/>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   )

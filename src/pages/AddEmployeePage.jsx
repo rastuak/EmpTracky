@@ -59,16 +59,16 @@ export default function AddEmployeePage() {
 
   return (
     <DashboardElement>
-      <div className='flex justify-center items-center w-full h-[15%] text-3xl font-semibold text-emptracky-blue'>
+      <div className='flex justify-center items-center text-center w-full h-[15%] text-3xl font-semibold text-emptracky-blue'>
         <h1 className=''>Add an Employee</h1>
       </div>
-      <div className='flex-col w-full h-full px-14'>
+      <div className='flex-col w-full h-full px-2 md:px-14'>
         <TextInputEmployee title="Full name :" setValue={setName} type="text"/>
         <div className='flex gap-2 w-full justify-between'>
           <TextInputEmployee title="Division :" setValue={setDivision} type="text" />
           <TextInputEmployee title="Position :" setValue={setPosition} type="text" />
         </div>
-        <div className='flex gap-2 w-full justify-between'>
+        <div className='flex flex-col md:flex-row gap-2 w-full justify-between'>
           <div className='w-full'>
             <h1>Gender :</h1>
             <select onChange={(e) => setGender(e.target.value)} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2'>
@@ -81,7 +81,7 @@ export default function AddEmployeePage() {
         <TextInputEmployee title="Salary :" setValue={setSalary} type="number" />
         <TextInputEmployee title="Contract :" setValue={setContract} type="number" />
         <TextInputEmployee title="Phone Number :" setValue={setPhone} type="number" />
-        <div className='flex justify-end mt-48'>
+        <div className='mt-[10%] md:mt-[35%] lg:mt-[8%]'>
           <Button title="Add Employee" onClick={handleAddEmployee} textColor="emptracky-fd" bgColor="emptracky-blue" />
         </div>
       </div>
