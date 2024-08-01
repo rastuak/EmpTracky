@@ -28,15 +28,15 @@ const navigate = useNavigate();
 
           <div>
             <h1 className="text-emptracky-darkgray text-2xl">Userame</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue outline-emptracky-blue  " />
             <h1 className="text-emptracky-darkgray text-2xl">Email</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue outline-emptracky-blue " />
             <h1 className="text-emptracky-darkgray text-2xl">Phone Number</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue outline-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-2xl">Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+            <input type="password" className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue outline-emptracky-blue" />
             <h1 className="text-emptracky-darkgray text-2xl">Confirm Password</h1>
-            <input className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+            <input type="password" className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue outline-emptracky-blue" />
 
           </div>
 

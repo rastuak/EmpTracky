@@ -38,9 +38,9 @@ export default function LoginPage() {
           <div>
             <h1 className="text-emptracky-darkgray text-2xl">Username</h1>
             <input className="shadow-md border border-emptracky-blue w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 outline-emptracky-blue" />
-            <h1 className="text-emptracky-darkgray text-2xl mt-4">Password</h1>
-            <input className="shadow-md border border-emptracky-blue w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 outline-emptracky-blue" />
-            
+            <h1 className="text-emptracky-darkgray text-2xl mt-4 ">Password</h1>
+            <input type="password" className=" shadow-md border border-emptracky-blue w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 outline-emptracky-blue" />
+           
           </div>
 
           <div className="w-full flex flex-col gap-3 justify-center items-center mt-12">
