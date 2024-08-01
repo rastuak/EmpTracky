@@ -1,4 +1,4 @@
-import { FunnelSimple, MagnifyingGlass, Plus } from "@phosphor-icons/react";
+import { FunnelSimple, Plus } from "@phosphor-icons/react";
 import axios from "axios";
 import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
@@ -12,19 +12,6 @@ export default function HomePage() {
   const [keyword, setKeyword] = useState("");
 
   axios.defaults.withCredentials = true;
-  
-  const handleSort = (sel) => {
-    if (sel === "name") {
-      data.sort((a, b) => a.name.localeCompare(b.name));
-      setData([...data]);
-    } else if (sel === "division") {
-      data.sort((a, b) => a.division.localeCompare(b.division));
-      setData([...data]);
-    } else if (sel === "contract") {
-      data.sort((a, b) => a.contract - b.contract);
-      setData([...data]);
-    }
-  }
 
   const handleHomePage = async () => {
     try {
@@ -59,7 +46,8 @@ export default function HomePage() {
         <div className="flex justify-end gap-1">
           <FunnelSimple size={42} className="text-white" />
           <div className='flex justify-end items-center w-[7%]'>
-            <select onChange={(e) => {handleSort(e.target.value)}} className="w-full h-[70%] rounded-md text-[#807F7F] hover:bg-gray-200 transition-all duration-200 focus:outline-none hover:cursor-pointer">
+            <select className="w-full h-[70%] rounded-md text-[#807F7F] hover:bg-gray-200 transition-all duration-200 focus:outline-none hover:cursor-pointer">
+              <option value="name"></option>
               <option value="name">Name</option>
               <option value="division">Division</option>
               <option value="contract">Contract</option>
@@ -72,17 +60,17 @@ export default function HomePage() {
         {
           data?.filter((data) => data.name.toLowerCase().includes(keyword.toLowerCase())).map((data, index) => {
             return (
-              <div key={index} onClick={() => navigate(`/employee/${data.id}`)} className="flex justify-between w-full h-14 bg-emptracky-f7 border border-emptracky-darkgray rounded-[15px] mb-6 px-4 hover:border-emptracky-blue hover:text-emptracky-blue hover:cursor-pointer transition-all duration-200">
-                <div className="flex justify-start items-center text-lg max-w-[20%] overflow-hidden">
-                  <h1>{data.name}</h1>
+              <div key={index} className="flex justify-between w-full h-14 bg-emptracky-f7 border border-emptracky-darkgray rounded-[15px] mb-6 px-4 hover:border-emptracky-blue hover:text-emptracky-blue hover:cursor-pointer transition-all duration-200">
+                <div className="flex justify-start items-center md:text-lg max-w-[20%] overflow-hidden text-md">
+                  <h1 className='text-sm md:text-lg'>{data.name}</h1>
                 </div>
                 <div className="flex h-full max-w-[80%] items-center">
                   <div className="h-full w-48 flex-col overflow-hidden">
-                    <h1 className="font-medium">Division:</h1>
+                    <h1 className="font-medium md:block hidden">Division:</h1>
                     <p>{data.division}</p>
                   </div>
                   <div className="h-full w-60 flex-col overflow-hidden">
-                    <h1 className="font-medium">Contract Expiry Year:</h1>
+                    <h1 className="font-medium md:block hidden">Contract Expiry Year:</h1>
                     <p>{data.contract}</p>
                   </div>
                 </div>

@@ -11,7 +11,6 @@ const LandingPage = () => {
     const handleLogout = async () => {
       try {
         await axios.get("http://localhost:8000/users/logout", { withCredentials: true });
-
         console.log("Cookies cleared");
       } catch (error) {
         console.error(error.response.data.msg);
@@ -21,8 +20,8 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen flex flex-row items-center bg-gradient-to-b from-[#619DC2] to-emptracky-f5 overflow-hidden font-poppins">
-      <div className='w-[500px] flex flex-col justify-center items-center text-center text-emptracky-fd'>
+    <div className="h-screen w-screen flex justify-center items-center bg-gradient-to-b from-[#619DC2] to-emptracky-f5 overflow-hidden font-poppins">
+      <div className='w-[500px] flex flex-col text-center text-emptracky-fd'>
         <div className='flex gap-3'>
           <img src={logo} />
           <h1 className=" font-bold text-[64px]">EmpTracky</h1>
