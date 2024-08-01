@@ -1,8 +1,10 @@
-import React from 'react'
-
-const TextInputEmployee = () => {
+/* eslint-disable react/prop-types */
+const TextInputEmployee = ({ title, setValue, type }) => {
   return (
-    <div>TextInputEmployee</div>
+    <div className='w-full'>
+      <h1>{title}</h1>
+      <input onChange={(e) => setValue(e.target.value)} type={type} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
+    </div>
   )
 }
 

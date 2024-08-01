@@ -1,57 +1,86 @@
-import { useState } from "react";
+import { useState, useEffect, Fragment } from "react";
 
-import DashboardElement from "../components/ui/DashboardElement";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
+import DashboardElement from "../components/ui/DashboardElement";
+import EditEmployeeModal from "../components/EditEmployeeModal";
+import axios from "axios";
+import Cookies from 'js-cookie';
 
-import male from "../assets/images/male.svg"
-import female from "../assets/images/female.svg"
+import { useParams, useNavigate } from "react-router-dom";
+import female from "../assets/images/female.svg";
+import male from "../assets/images/male.svg";
+import DeleteEmployeeModal from "../components/DeleteEmployeeModal";
+import Button from "../components/ui/Button";
 
-export default function MyInfoPage() {
-  const [toggleEmail, setToggleEmail] = useState(false)
-  const [togglePhone, setTogglePhone] = useState(false)
+export default function EmployeeInfoPage() {
+  const navigate = useNavigate();
+  const { employeeid } = useParams();
+  const [data, setData] = useState([]);
+  const [togglePhone, setTogglePhone] = useState(true);
+  const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
-  // const [name, setName] = useState("");
+  const handleEmployeePage = async () => {
+    try {
+      const uuid = Cookies.get("uuid");
+      if (!uuid) {
+        navigate('/')
+        throw new Error("User not logged in")
+      }
+      const response = await axios.get(`http://localhost:8000/employee/${employeeid}`);
+      if (response.status !== 200) throw new Error("Failed to get employee data");
+      console.log(response.data);
+      if ( uuid !== response.data.user_id) {
+        navigate('/')
+        throw new Error("User not authorized")
+      }
+      setData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handleEmployeePage();
+  }, []);
 
   return (
-    <DashboardElement>
-      <div className="flex flex-col w-full h-[27%] bg-gradient-to-r from-[#00366B] to-[#6CABC6] rounded-t-[10px] px-14 pt-5 pb-3 justify-center items-end">
-        <div className="text-emptracky-fd text-lg font-medium">
-          <h1 className="text-3xl font-semibold">{data.name}</h1>
-          <div className="flex gap-2 justify-end items-center">
-            <p>{toggleEmail ? "******" : data.email}</p>
-            <button onClick={() => setToggleEmail(!toggleEmail)}>
-              {toggleEmail ? <EyeSlash size={20} /> : <Eye size={20} />}
-            </button>
-          </div>
-          <div className="flex gap-2 justify-end items-center">
-            <p>{togglePhone ? "******" : data.phone}</p>
-            <button onClick={() => setTogglePhone(!togglePhone)}>
-              {togglePhone ? <EyeSlash size={20} /> : <Eye size={20} />}
-            </button>
+    <Fragment>
+      <DashboardElement>
+        <div className="flex flex-col w-full h-[27%] bg-gradient-to-r from-[#00366B] to-[#6CABC6] px-14 pt-5 pb-3 justify-center items-end">
+          <div className="text-emptracky-fd text-lg font-medium">
+            <h1 className="text-3xl font-semibold text-end">{data.name}</h1>
+            <div className="flex gap-2 justify-end items-center">
+              <p>{togglePhone ? "******" : data.phone}</p>
+              <button onClick={() => setTogglePhone(!togglePhone)}>
+                {togglePhone ? <EyeSlash size={20} /> : <Eye size={20} />}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="w-full h-[70%] flex flex-row justify-end">
-        <div className="flex flex-col gap-3 h-full w-[60%] justify-center font-semibold text-lg">
-          <h1>Birthdate : <span className="font-medium"> {data.birth} </span>  </h1>
-          <h1>Company name : <span className="font-medium"> {data.company} </span> </h1>
-          <h1>Position : <span className="font-medium"> {data.position} </span> </h1>
+        <div className="w-full h-[65%] flex flex-row justify-end">
+          <div className="flex flex-col gap-3 h-full w-[60%] justify-center font-semibold text-lg">
+            <h1>Gender : <span className="font-medium"> {data.gender} </span>  </h1>
+            <h1>Birthdate : <span className="font-medium"> {data.birth} </span>  </h1>
+            <h1>Division : <span className="font-medium"> {data.division} </span> </h1>
+            <h1>Position : <span className="font-medium"> {data.position} </span> </h1>
+            <h1>Salary : <span className="font-medium"> {String(data.salary)} </span> </h1>
+            <h1>Contract expiry year : <span className="font-medium"> {data.contract} </span> </h1>
+          </div>
         </div>
-      </div>
-      <div className="absolute flex justify-center items-center bg-emptracky-f7 shadow-lg rounded-2xl overflow-hidden h-[250px] w-[250px] top-36 left-24">
-        {(data.gender === "Male") ? <img src={male} /> : null}
-        {(data.gender === "Female") ? <img src={female} /> : null}
-      </div>
-    </DashboardElement>
+        <div className="absolute flex justify-center items-center bg-emptracky-f7 shadow-lg rounded-2xl overflow-hidden h-[250px] w-[250px] top-36 left-24">
+          {(data.gender === "Male") ? <img src={male} /> : null}
+          {(data.gender === "Female") ? <img src={female} /> : null}
+        </div>
+        <div className="w-full h-[7%] flex flex-row justify-end items-end p-6 gap-3 text-emptracky-fd">
+        <Button title="Edit Employee" onClick={() => setShowEdit(true)} textColor="emptracky-f1" bgColor="emptracky-blue" />
+        <Button title="Delete Employee" onClick={() => setShowDelete(true)} textColor="emptracky-f1" bgColor="emptracky-red" />
+          {/* <button onClick={() => setShowEdit(true)} className="bg-emptracky-blue p-2 rounded-lg">edit employee</button>
+          <button onClick={() => setShowDelete(true)} className="bg-emptracky-red p-2 rounded-lg">delete employee</button> */}
+        </div>
+      </DashboardElement>
+      <EditEmployeeModal isVisible={showEdit} onClose={() => setShowEdit(false)} id={data.id} />
+      <DeleteEmployeeModal isVisible={showDelete} onClose={() => setShowDelete(false)} id={data.id} />
+    </Fragment>
   );
-}
-
-const data = {
-  name: "Kautsar Faradika Faisal",
-  email: "rastuakfaisal@gmail.com",
-  phone: "628812322357",
-  gender: "Male",
-  birth: "2004-09-02",
-  company: "Astra",
-  position: "Software Engineer"
 }

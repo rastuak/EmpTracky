@@ -1,70 +1,87 @@
 import axios from 'axios';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardElement from "../components/ui/DashboardElement";
-
+import Cookies from "js-cookie";
+import { useNavigate } from 'react-router-dom';
+import TextInputEmployee from '../components/ui/TextInputEmployee';
+import Button from '../components/ui/Button';
 
 
 export default function AddEmployeePage() {
+  const [name, setName] = useState("")
+  const [division, setDivision] = useState("")
+  const [position, setPosition] = useState("")
+  const [gender, setGender] = useState("Male")
+  const [birth, setBirth] = useState("")
+  const [salary, setSalary] = useState("")
+  const [contract, setContract] = useState("")
+  const [phone, setPhone] = useState("")
+
+  const uuid = Cookies.get("uuid")
+  axios.defaults.withCredentials = true
+  const navigate = useNavigate();
+
+
+  const handleAddEmployee = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8000/employee/add', {
+        uuid, name, division, position, gender, birth, salary, contract, phone
+      })
+      if (response.status !== 201) throw new Error('Failed to add employee')
+      navigate('/home');
+      alert("Employee added successfully");
+      console.log(response.data);
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+
+  const handleRefresh = async () => {
+    try {
+      const uuid = Cookies.get("uuid");
+      if (!uuid) {
+        navigate('/')
+        throw new Error("User not logged in")
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handleRefresh();
+  }, []);
+
+
 
   return (
     <DashboardElement>
       <div className='flex justify-center items-center w-full h-[15%] text-3xl font-semibold text-emptracky-blue'>
         <h1 className=''>Add an Employee</h1>
       </div>
-      
       <div className='flex-col w-full h-full px-14'>
-
-        <div className='flex-col'>
-          <h1>Full Name :</h1>
-          <input type='text' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-        </div>
-
+        <TextInputEmployee title="Full name :" setValue={setName} type="text"/>
         <div className='flex gap-2 w-full justify-between'>
-          <div className='flex-col flex-1'>
-            <h1>Division :</h1>
-            <input type='text' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-          </div>
-          <div className='flex-col flex-1'>
-            <h1>Position :</h1>
-            <input type='text' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-          </div>
+          <TextInputEmployee title="Division :" setValue={setDivision} type="text" />
+          <TextInputEmployee title="Position :" setValue={setPosition} type="text" />
         </div>
-
         <div className='flex gap-2 w-full justify-between'>
-          <div className='flex-col flex-1'>
+          <div className='w-full'>
             <h1>Gender :</h1>
-            <select className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2'>
-              <option></option>
+            <select onChange={(e) => setGender(e.target.value)} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2'>
               <option>Male</option>
               <option>Female</option>
             </select>
           </div>
-          <div className='flex-col flex-1'>
-            <h1>Birthdate :</h1>
-            <input type='date' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-          </div>
+          <TextInputEmployee title="Birthdate :" setValue={setBirth} type="date" />
         </div>
-
-        <div className='flex-col'>
-          <h1>Salary :</h1>
-          <input type='number' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-        </div>
-
-        <div className='flex-col'>
-          <h1>Contract Expiry Year :</h1>
-          <input placeholder='eg: 2029' type='number' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-        </div>
-        <div className='flex-col'>
-          <h1>Phone Number :</h1>
-          <input placeholder='eg: 6281214140000' type='number' className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2' />
-        </div>
+        <TextInputEmployee title="Salary :" setValue={setSalary} type="number" />
+        <TextInputEmployee title="Contract :" setValue={setContract} type="number" />
+        <TextInputEmployee title="Phone Number :" setValue={setPhone} type="number" />
         <div className='flex justify-end mt-48'>
-          <button className='border border-emptracky-blue w-24 rounded-md h-8 bg-emptracky-fd text-emptracky-blue shadow-md hover:bg-emptracky-red hover:text-emptracky-fd transition-all duration-200'>
-            <p>Reset</p>
-          </button>
-          <button className='border bg-emptracky-blue w-24 rounded-md h-8 text-emptracky-fd shadow-md hover:bg-[#5E9CC2] transition-all duration-200'>
-            <p>Add</p>
-          </button>
+          <Button title="Add Employee" onClick={handleAddEmployee} textColor="emptracky-fd" bgColor="emptracky-blue" />
         </div>
       </div>
     </DashboardElement>
