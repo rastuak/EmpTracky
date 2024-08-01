@@ -25,10 +25,11 @@ export default function AddEmployeePage() {
   const handleAddEmployee = async (e) => {
     e.preventDefault();
     try {
+      if (!name || !division || !position || !gender || !birth || !salary || !contract || !phone) throw new Error("Please fill all fields");
       const response = await axios.post('http://localhost:8000/employee/add', {
         uuid, name, division, position, gender, birth, salary, contract, phone
       })
-      if (response.status !== 201) throw new Error('Failed to add employee')
+      if (response.status !== 201) throw new Error('Failed to add employee');
       navigate('/home');
       alert("Employee added successfully");
       console.log(response.data);
