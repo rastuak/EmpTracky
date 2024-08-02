@@ -62,7 +62,7 @@ export default function AddEmployeePage() {
       <div className='flex justify-center items-center text-center w-full h-[15%] text-3xl font-semibold text-emptracky-blue'>
         <h1 className=''>Add an Employee</h1>
       </div>
-      <div className='flex-col w-full h-full px-2 md:px-14'>
+      <div className='flex-col w-full h-full px-2 md:px-14 '>
         <TextInputEmployee title="Full name :" setValue={setName} type="text"/>
         <div className='flex gap-2 w-full justify-between'>
           <TextInputEmployee title="Division :" setValue={setDivision} type="text" />
@@ -71,7 +71,7 @@ export default function AddEmployeePage() {
         <div className='flex flex-col md:flex-row gap-2 w-full justify-between'>
           <div className='w-full'>
             <h1>Gender :</h1>
-            <select onChange={(e) => setGender(e.target.value)} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2'>
+            <select onChange={(e) => setGender(e.target.value)} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2 focus:ring-4 focus:ring-inherit focus:ring-emptracky-blue'>
               <option>Male</option>
               <option>Female</option>
             </select>

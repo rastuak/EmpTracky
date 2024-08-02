@@ -59,13 +59,13 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
         <div className='px-8 text-md md:text-xl'>
           <div className='flex flex-col gap-4'>
             <EditInput title="Birthdate" type="date" id="birth"/>
-            <EditInput title="Company name" type="text" id="company"/>
+            <EditInput title="Company Name" type="text" id="company"/>
             <EditInput title="Division" type="text" id="division"/>
             <EditInput title="Position" type="text" id="position"/>
             <EditInput title="Phone Number" type="number" id="phone"/>
             <div className='flex flex-col gap-2'>
               <label htmlFor='gender'>Gender</label>
-              <select id='gender' className='text-emptracky-darkgray'>
+              <select id='gender' className='text-emptracky-darkgray rounded-2xl p-2'>
                 <option>Male</option>
                 <option>Female</option>
               </select>

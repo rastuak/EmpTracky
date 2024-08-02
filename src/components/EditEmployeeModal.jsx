@@ -54,7 +54,7 @@ const EditEmployeeModal = ({ isVisible, onClose, id }) => {
           </button>
           <h1 className='w-full text-center text-xl md:text-3xl'>Edit employee details</h1>
         </div>
-        <form onSubmit={handleEditEmployee} className='px-8 text-md md:text-xl'>
+        <form onSubmit={handleEditEmployee} className='px-8 text-md md:text-xl p-2'>
           <div className='flex flex-col gap-4'>
             <EditInput title="Birthdate" type="date" id="birth" />
             <EditInput title="Division" type="text" id="division" />

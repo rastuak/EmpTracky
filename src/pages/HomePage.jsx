@@ -55,9 +55,9 @@ export default function HomePage() {
           <SearchBar setKeyword={setKeyword} />
         </div>
         <div className="flex justify-end items-center gap-1">
-          <FunnelSimple size={40} className="text-white" />
-          <div className='flex justify-end items-center w-[25%] md:w-[10%] lg:w-[7%]'>
-            <select onChange={(e) => handleSort(e.target.value)} className="w-full h-[70%] rounded-md text-sm md:text-lg text-[#807F7F] hover:bg-gray-200 transition-all duration-200 focus:outline-none hover:cursor-pointer">
+          <FunnelSimple size={42} className="text-white" />
+          <div className='flex justify-end items-center w-[28%] md:w-[10%] lg:w-[7%]'>
+            <select onChange={(e) => handleSort(e.target.value)} className="flex w-full h-[70%] rounded-md text-sm md:text-lg text-[#807F7F] hover:bg-gray-200 transition-all duration-200 focus:outline-none hover:cursor-pointer">
               <option value="name">Name</option>
               <option value="division">Division</option>
               <option value="contract">Contract</option>

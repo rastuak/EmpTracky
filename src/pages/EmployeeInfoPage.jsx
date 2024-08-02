@@ -49,11 +49,11 @@ export default function EmployeeInfoPage() {
       <DashboardElement>
         <div className="flex flex-col w-full h-[27%] bg-gradient-to-r from-[#00366B] to-[#6CABC6] px-2 md:px-14 pt-5 pb-3 justify-center items-end">
           <div className="text-emptracky-fd text-lg font-medium w-full">
-            <h1 className="text-lg md:text-3xl font-semibold text-end">{data.name}</h1>
-            <div className="text-sm md:text-xl flex gap-2 justify-end items-center">
-              <p>{togglePhone ? "******" : data.phone}</p>
+            <h1 className="text-lg md:text-5xl font-semibold text-end">{data.name}</h1>
+            <div className="text-sm md:text-2xl flex gap-2 justify-end items-center">
+              <p className="p-2">{togglePhone ? "*****" : data.phone}</p>
               <button onClick={() => setTogglePhone(!togglePhone)}>
-                {togglePhone ? <EyeSlash size={20} /> : <Eye size={20} />}
+                {togglePhone ? <EyeSlash size={24} /> : <Eye size={24} />}
               </button>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function EmployeeInfoPage() {
           {(data.gender === "Male") ? <img src={male} /> : null}
           {(data.gender === "Female") ? <img src={female} /> : null}
         </div>
-        <div className="w-full h-[7%] flex flex-row justify-end items-end p-6 gap-3 text-emptracky-fd">
+        <div className="w-full h-[7%] flex flex-row justify-center items-end p-6 gap-3 text-emptracky-fd">
         <Button title="Edit Employee" onClick={() => setShowEdit(true)} textColor="emptracky-f1" bgColor="emptracky-blue" />
         <Button title="Delete Employee" onClick={() => setShowDelete(true)} textColor="emptracky-f1" bgColor="emptracky-red" />
         </div>

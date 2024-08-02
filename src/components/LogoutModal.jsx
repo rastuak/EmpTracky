@@ -26,7 +26,7 @@ const DeleteEmployeeModal = ({ isVisible, onClose }) => {
         <div onClick={handleClose} id='wrapper' className='fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
             <div className='w-[80%] md:w-1/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
                 <div className='w-full h-full text-center justify-center items-center'>
-                    <p className='text-xl mb-6'>Are you sure want to Logout??</p>
+                    <p className='text-xl mb-6'>Are you sure want to Logout?</p>
                     <div className='w-full flex justify-center items-center gap-4'>
                         <Button title="Cancel" onClick={onClose} textColor="emptracky-fd" bgColor="emptracky-blue"/>
                         <Button title="Logout Now!" onClick={handleLogout} textColor="emptracky-fd" bgColor="emptracky-red"/>

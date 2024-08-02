@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import login from"../assets/images/bgLogin.svg"
 import Button from "../components/ui/Button";
 
 export default function LoginPage() {
@@ -28,21 +29,29 @@ export default function LoginPage() {
 
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-gradient-to-l from-[#619DC2] to-emptracky-f5 overflow-hidden font-poppins">
-      <div className="h-[70%] w-[50%] bg-emptracky-fd rounded-[20px] flex">
-        <div className="h-full  w-[40%] bg-login rounded-l-[20px]" />
-        <form onSubmit={handleLogin} className="h-full  w-[60%] justify-center items-center p-12 mt-6">
-          <h1 className="text-emptracky-blue font-bold text-[32px]">WELCOME BACK!</h1>
-          <h1 className="text-emptracky-darkgray text-[24px] mb-10">Please login to your account</h1>
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-l from-[#619DC2] to-emptracky-f5 overflow-hidden font-poppins">
+      <div className=" relative flex flex-col m-6 space-y-8 bg-emptracky-fd rounded-[20px] md:flex-row justify-center items-center">
+        <div className="relative">
+          <img src={login}
+          className="w-full h-full hidden rounded-l-[20px] md:block object-cover"/>
+        </div> 
+
+        <form onSubmit={handleLogin} className="h-full w-4/5 md:w-[60%] m-6 space-y-8 flex flex-col">
           <div>
-            <h1 className="text-emptracky-darkgray text-[24px]">Username</h1>
-            <input onChange={(e) => setUsername(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
-            <h1 className="text-emptracky-darkgray text-[24px] mt-4">Password</h1>
-            <input onChange={(e) => setPassword(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[50px] px-5" />
+          <h1 className="text-emptracky-blue font-bold text-2xl md:text-4xl">WELCOME BACK!</h1>
+          <h1 className="text-emptracky-darkgray md:text-2xl text-xl mb-2">Please login to your account</h1>
           </div>
-          <div className="w-full flex flex-col gap-3 justify-center items-center mt-12">
+
+          <div>
+            <h1 className="text-emptracky-darkgray text-xl md:text-2xl">Username</h1>
+            <input onChange={(e) => setUsername(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
+            <h1 className="text-emptracky-darkgray text-xl md:text-2xl mt-4">Password</h1>
+            <input onChange={(e) => setPassword(e.target.value)}  type='password' className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue " />
+          </div>
+
+          <div className="flex flex-col gap-3 justify-center items-center mt-12 text-center">
             <Button title="Sign in" onClick={handleLogin} textColor="emptracky-f1" bgColor="emptracky-blue" w="full" />
-            <h1 className="text-emptracky-darkgray text-[20px] ">Already have an account?
+            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Already have an account?
               <span className="text-emptracky-blue text-decoration-line: underline hover:cursor-pointer w-fit transition-all duration-200 ml-2" onClick={() => navigate("/register")}>
                 Register here!
               </span>
@@ -51,6 +60,8 @@ export default function LoginPage() {
         </form>
       </div>
     </div>
+  
+
 
 
   );

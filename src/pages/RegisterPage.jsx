@@ -55,18 +55,18 @@ const RegisterPage = () => {
 
             <div>
               <h1 className="text-emptracky-darkgray text-2xl">Userame</h1>
-              <input onChange={(e) => setUsername(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+              <input onChange={(e) => setUsername(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue  " />
               <h1 className="text-emptracky-darkgray text-2xl">Email</h1>
-              <input onChange={(e) => setEmail(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+              <input onChange={(e) => setEmail(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
               <h1 className="text-emptracky-darkgray text-2xl">Password</h1>
-              <input onChange={(e) => setPassword(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+              <input onChange={(e) => setPassword(e.target.value)} type='password' className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
               <h1 className="text-emptracky-darkgray text-2xl">Confirm Password</h1>
-              <input onChange={(e) => setConfirm(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-[30px] px-5 border border-emptracky-blue" />
+              <input onChange={(e) => setConfirm(e.target.value)} type='password' className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
             </div>
 
             <div className="w-full flex flex-col gap-3 justify-center items-center">
               <button className="shadow-md w-full h-12 bg-emptracky-blue rounded-[50px] mt-7">
-                <h1 className="text-emptracky-f1 text-[26px]" onClick={handleRegister}>Sign up</h1>
+                <h1 className="text-emptracky-f1 text-2xl" onClick={handleRegister}>Sign up</h1>
               </button>
 
               <h1 className="text-emptracky-darkgray text-lg text-center">Already have an account?
