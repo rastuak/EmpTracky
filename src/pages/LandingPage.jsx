@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/images/empTrackyLogo.svg"
+import logo from "../images/empTrackyLogo.svg"
 import axios from 'axios';
 
 
@@ -13,7 +13,7 @@ const LandingPage = () => {
         await axios.get("http://localhost:8000/users/logout", { withCredentials: true });
         console.log("Cookies cleared");
       } catch (error) {
-        console.error(error.response.data.msg);
+        console.error(error);
       }
     };
     handleLogout();

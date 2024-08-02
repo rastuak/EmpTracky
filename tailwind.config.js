@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       backgroundImage: {
-        "landing": "url('src/assets/images/bgLanding.svg')",
-        "register": "url('src/assets/images/bgRegister.svg')",
-        "login": "url('src/assets/images/bgLogin.svg')",
-        "home": "url('src/assets/images/bgHome.svg')",
-        "profile": "url('src/assets/images/bgProfile.svg')",
+        "register": "url('src/images/bgRegister.svg')",
+        "login": "url('src/images/bgLogin.svg')"
       },
       fontFamily: {
         poppins : ['Poppins', 'sans-serif']

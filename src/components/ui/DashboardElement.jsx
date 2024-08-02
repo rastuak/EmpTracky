@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { House, SignOut, UserCircle, UserPlus } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
-import line from "../../assets/images/dashboardLine.svg";
-import logo from "../../assets/images/logoDashboard.svg";
+import line from "../../images/dashboardLine.svg";
+import logo from "../../images/logoDashboard.svg";
 import { Fragment, useState } from 'react';
 import LogoutModal from "../LogoutModal";
 
@@ -21,15 +21,15 @@ export default function DashboardElement({ children }) {
             <img src={line} className="mt-6 mb-4" />
             <div className="text-emptracky-darkgray font-semibold">
               <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/home")}>
-                <House size={32} className="md:w-24 lg:w-fit"/>
+                <House size={32} className="md:w-24 lg:w-fit" />
                 <p className="mt-1 hidden lg:block">Home</p>
               </div>
               <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/my-info")}>
-                <UserCircle size={32} className="md:w-24 lg:w-fit"/>
+                <UserCircle size={32} className="md:w-24 lg:w-fit" />
                 <p className="mt-1 hidden lg:block">My Info</p>
               </div>
               <div className="flex gap-2 hover:text-emptracky-blue hover:cursor-pointer w-fit mb-3 transition-all duration-200" onClick={() => navigate("/add-employee")}>
-                <UserPlus size={32} className="md:w-24 lg:w-fit"/>
+                <UserPlus size={32} className="md:w-24 lg:w-fit" />
                 <p className="mt-1 hidden lg:block">Add Employee</p>
               </div>
             </div>
@@ -42,8 +42,8 @@ export default function DashboardElement({ children }) {
             </div>
           </div>
         </div>
-        <div className="flex justify-left items-center w-full min-h-screen  ">
-          <div className="bg-emptracky-f5 h-[90%] w-[80%] md:w-[98%] shadow-xl rounded-[10px] overflow-hidden text-emptracky-darkgray relative">
+        <div className="flex justify-left items-center w-[85%] min-h-screen  ">
+          <div className="bg-emptracky-f5 h-[90%] w-[95%] shadow-xl rounded-[10px] overflow-hidden text-emptracky-darkgray relative">
             {children}
           </div>
         </div>

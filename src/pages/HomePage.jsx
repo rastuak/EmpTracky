@@ -67,19 +67,18 @@ export default function HomePage() {
       </div>
 
       <div className="flex-col px-2 md:px-14 pt-8 pb-3 max-h-[81%] overflow-y-auto w-full">
-        {
-          data?.filter((data) => data.name.toLowerCase().includes(keyword.toLowerCase())).map((data, index) => {
+        {data?.filter((data) => data.name.toLowerCase().includes(keyword.toLowerCase())).map((data, index) => {
             return (
               <div key={index} onClick={() => navigate(`/employee/${data.id}`)} className="flex justify-between w-full h-14 bg-emptracky-f7 border border-emptracky-darkgray rounded-[15px] mb-6 px-4 hover:border-emptracky-blue hover:text-emptracky-blue hover:cursor-pointer transition-all duration-200">
                 <div className="flex justify-start items-center md:text-lg max-w-[85%] md:max-w-[20%] overflow-hidden text-md">
                   <h1 className='text-sm md:text-lg'>{data.name}</h1>
                 </div>
                 <div className="flex h-full max-w-[5%] md:max-w-[60%] items-center">
-                  <div className="h-full flex flex-col justify-center w-4 md:w-48 overflow-hidden text-[8px] md:text-lg">
+                  <div className="h-full flex flex-col justify-center w-4 md:w-48 overflow-hidden text-[8px] md:text-[13px]">
                     <h1 className="hidden md:block font-medium ">Division:</h1>
                     <p className="hidden md:block">{data.division}</p>
                   </div>
-                  <div className="h-full w-60 flex flex-col justify-center overflow-hidden text-[8px] md:text-lg">
+                  <div className="h-full w-60 flex flex-col justify-center overflow-hidden text-[8px] md:text-[13px]">
                     <h1 className="font-medium hidden md:block">Contract Expiry Year:</h1>
                     <p className="hidden md:block">{data.contract}</p>
                   </div>

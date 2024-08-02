@@ -7,8 +7,8 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 
 import { useParams, useNavigate } from "react-router-dom";
-import female from "../assets/images/female.svg";
-import male from "../assets/images/male.svg";
+import female from "../images/female.svg";
+import male from "../images/male.svg";
 import DeleteEmployeeModal from "../components/DeleteEmployeeModal";
 import Button from "../components/ui/Button";
 
@@ -16,7 +16,7 @@ export default function EmployeeInfoPage() {
   const navigate = useNavigate();
   const { employeeid } = useParams();
   const [data, setData] = useState([]);
-  const [togglePhone, setTogglePhone] = useState(true);
+  const [togglePhone, setTogglePhone] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
 
@@ -25,7 +25,7 @@ export default function EmployeeInfoPage() {
       const uuid = Cookies.get("uuid");
       if (!uuid) {
         navigate('/')
-        throw new Error("User not logged in")
+        throw new Error("User not logged in. Please login before accessing this page.")
       }
       const response = await axios.get(`http://localhost:8000/employee/${employeeid}`);
       if (response.status !== 200) throw new Error("Failed to get employee data");
@@ -35,8 +35,10 @@ export default function EmployeeInfoPage() {
         throw new Error("User not authorized")
       }
       setData(response.data);
+      setTogglePhone(true);
     } catch (error) {
       console.error(error);
+      alert(error);
     }
   };
 
@@ -51,7 +53,7 @@ export default function EmployeeInfoPage() {
           <div className="text-emptracky-fd text-lg font-medium w-full">
             <h1 className="text-lg md:text-5xl font-semibold text-end">{data.name}</h1>
             <div className="text-sm md:text-2xl flex gap-2 justify-end items-center">
-              <p className="p-2">{togglePhone ? "*****" : data.phone}</p>
+              <p>{togglePhone ? ("*").repeat(data.phone.length) : data.phone}</p>
               <button onClick={() => setTogglePhone(!togglePhone)}>
                 {togglePhone ? <EyeSlash size={24} /> : <Eye size={24} />}
               </button>
@@ -59,7 +61,7 @@ export default function EmployeeInfoPage() {
           </div>
         </div>
         <div className="w-full h-[65%] flex flex-row justify-center md:justify-end">
-          <div className="flex flex-col gap-3 h-full w-[85%] md:w-[60%] justify-center font-semibold text-md md:text-lg">
+          <div className="flex flex-col gap-3 h-full w-[85%] md:w-[60%] justify-center font-semibold md:text-lg">
             <h1>Gender : <span className="font-medium"> {data.gender} </span>  </h1>
             <h1>Birthdate : <span className="font-medium"> {data.birth} </span>  </h1>
             <h1>Division : <span className="font-medium"> {data.division} </span> </h1>
@@ -73,8 +75,8 @@ export default function EmployeeInfoPage() {
           {(data.gender === "Female") ? <img src={female} /> : null}
         </div>
         <div className="w-full h-[7%] flex flex-row justify-center items-end p-6 gap-3 text-emptracky-fd">
-        <Button title="Edit Employee" onClick={() => setShowEdit(true)} textColor="emptracky-f1" bgColor="emptracky-blue" />
-        <Button title="Delete Employee" onClick={() => setShowDelete(true)} textColor="emptracky-f1" bgColor="emptracky-red" />
+        <Button title="Edit Employee" onClick={() => setShowEdit(true)} styleUi="bg-emptracky-blue text-emptracky-f1 w-full" />
+        <Button title="Delete Employee" onClick={() => setShowDelete(true)} styleUi="bg-emptracky-red text-emptracky-f1 w-full" />
         </div>
       </DashboardElement>
       <EditEmployeeModal isVisible={showEdit} onClose={() => setShowEdit(false)} id={data.id} />

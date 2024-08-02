@@ -4,8 +4,8 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
 import DashboardElement from "../components/ui/DashboardElement";
 
-import male from "../assets/images/male.svg"
-import female from "../assets/images/female.svg"
+import male from "../images/male.svg"
+import female from "../images/female.svg"
 import { useNavigate } from "react-router-dom";
 import EditProfileModal from "../components/EditProfileModal";
 import Button from "../components/ui/Button";
@@ -13,8 +13,8 @@ import Button from "../components/ui/Button";
 export default function MyInfoPage() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const [toggleEmail, setToggleEmail] = useState(true)
-  const [togglePhone, setTogglePhone] = useState(true)
+  const [toggleEmail, setToggleEmail] = useState(false)
+  const [togglePhone, setTogglePhone] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   axios.defaults.withCredentials = true
   
@@ -28,8 +28,9 @@ export default function MyInfoPage() {
       const response = await axios.get(`http://localhost:8000/users/${uuid}`);
       if (response.status !== 200) throw new Error("Failed to get profile data");
       console.log(response.data);
-
       setData(response.data);
+      setToggleEmail(true);
+      setTogglePhone(true);
     } catch (error) {
       console.error(error);
     }
@@ -45,13 +46,13 @@ export default function MyInfoPage() {
           <div className="text-emptracky-fd text-lg font-medium">
             <h1 className="text-xl md:text-3xl font-semibold text-end">{data.username}</h1>
             <div className="text-sm md:text-lg flex gap-2 justify-end items-center">
-              <p>{toggleEmail ? "******" : data.email}</p>
+            <p>{toggleEmail ? ("*").repeat(data.email.length) : data.email}</p>
               <button onClick={() => setToggleEmail(!toggleEmail)}>
                 {toggleEmail ? <EyeSlash size={20} /> : <Eye size={20} />}
               </button>
             </div>
           <div className="text-sm md:text-lg flex gap-2 justify-end items-center">
-              <p>{togglePhone ? "******" : data.phone}</p>
+            <p>{togglePhone ? ("*").repeat(String(data.phone).length) : data.phone}</p>
               <button onClick={() => setTogglePhone(!togglePhone)}>
                 {togglePhone ? <EyeSlash size={20} /> : <Eye size={20} />}
               </button>
@@ -68,7 +69,7 @@ export default function MyInfoPage() {
           </div>
         </div>
         <div className="w-full h-[7%] flex flex-row justify-end items-end p-6 gap-3 text-emptracky-fd">
-        <Button onClick={() => setShowEdit(true)} bgColor='emptracky-blue' textColor='emptracky-fd' title='Edit profile'/>
+        <Button onClick={() => setShowEdit(true)} styleUi="bg-emptracky-blue w-full text-emptracky-fd" title='Edit profile'/>
         </div>
         <div className="absolute flex justify-center items-center bg-emptracky-f7 opacity-0 md:opacity-100 shadow-lg rounded-2xl overflow-hidden h-[250px] w-[250px] top-36 left-24">
         {(data.gender === "Male") ? <img className="hidden md:block" src={male} /> : null}

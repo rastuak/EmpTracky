@@ -17,12 +17,12 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
       navigate('/')
       throw new Error("User not logged in")
     }
-    const birth = document.getElementById("birth").value;
-    const division = document.getElementById("division").value;
-    const position = document.getElementById("position").value;
-    const company = document.getElementById("company").value;
-    const gender = document.getElementById("gender").value;
-    const phone = document.getElementById("phone").value;
+    const birth = document.getElementById("birth").value.trim();
+    const division = document.getElementById("division").value.trim();
+    const position = document.getElementById("position").value.trim();
+    const company = document.getElementById("company").value.trim();
+    const gender = document.getElementById("gender").value.trim();
+    const phone = document.getElementById("phone").value.trim();
     try {
       if(!birth || !division || !position || !company || !gender || !phone) throw new Error("Please fill all the fields");
       const response = await axios.put(`http://localhost:8000/users/${id}`, {
@@ -49,7 +49,7 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
 
   return (
     <div onClick={handleClose} id='wrapper' className='fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-      <div className='w-[85%] md:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
+      <div className='w-[85%] md:w-3/5 lg:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
         <div className='w-full h-fit flex'>
           <button onClick={() => onClose()} className='w-fit'>
             <Backspace size={24} />
@@ -70,7 +70,7 @@ const EditProfileModal = ({ isVisible, onClose, id }) => {
                 <option>Female</option>
               </select>
             </div>
-            <Button title='Save changes' bgColor='emptracky-blue' textColor='emptracky-fd' onClick={handleEditProfile}/>
+            <Button title='Save changes' onClick={handleEditProfile} styleUi="bg-emptracky-blue "/>
           </div>
         </div>
       </div>
