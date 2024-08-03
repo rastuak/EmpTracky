@@ -50,21 +50,21 @@ const RegisterPage = () => {
         <div className="relative h-full w-[583px] bg-emptracky-fd rounded-[20px] m-6 space-y-8 flex flex-col">
           <div className="h-full w-full justify-center items-center p-12">
             <div className='flex w-full justify-center items-center'>
-              <h1 className="text-emptracky-blue font-bold text-4xl mb-2">Register</h1>
+              <h1 className="text-emptracky-blue font-bold text-2xl md:text-4xl mb-2">Register</h1>
             </div>
             <div>
-              <h1 className="text-emptracky-darkgray text-2xl">Userame</h1>
+              <h1 className="text-emptracky-darkgray text-xl md:text-2xl ">Userame</h1>
               <input onKeyDown={handleSpace} onChange={(e) => setUsername(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue  " />
-              <h1 className="text-emptracky-darkgray text-2xl">Email</h1>
+              <h1 className="text-emptracky-darkgray text-xl md:text-2xl">Email</h1>
               <input onKeyDown={handleSpace} onChange={(e) => setEmail(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
-              <h1 className="text-emptracky-darkgray text-2xl">Password</h1>
+              <h1 className="text-emptracky-darkgray text-xl md:text-2xl">Password</h1>
               <input onChange={(e) => setPassword(e.target.value)} type='password' className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
-              <h1 className="text-emptracky-darkgray text-2xl">Confirm Password</h1>
+              <h1 className="text-emptracky-darkgray text-xl md:text-2xl">Confirm Password</h1>
               <input onChange={(e) => setConfirm(e.target.value)} type='password' className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />
             </div>
             <div className="w-full flex flex-col gap-3 justify-center items-center">
               <button className="shadow-md w-full h-12 bg-emptracky-blue rounded-[50px] mt-7">
-                <h1 className="text-emptracky-f1 text-2xl" onClick={handleRegister}>Sign up</h1>
+                <h1 className="text-emptracky-f1 text-xl" onClick={handleRegister}>Sign up</h1>
               </button>
               <h1 className="text-emptracky-darkgray text-lg text-center">Already have an account?
                 <span className=" text-emptracky-blue text-decoration-line: underline hover:cursor-pointer w-fit transition-all duration-200 ml-2" onClick={() => navigate("/login")}>

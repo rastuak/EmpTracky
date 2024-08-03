@@ -53,8 +53,8 @@ export default function LoginPage() {
             <input onChange={(e) => setPassword(e.target.value)} type='password' className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue " />
           </div>
           <div className="flex flex-col gap-3 justify-center items-center mt-12 text-center">
-            <Button title="Sign in" onClick={handleLogin} styleUi="bg-emptracky-blue text-emptracky-fd w-full" />
-            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Already have an account?
+            <Button title="Sign in" onClick={handleLogin} styleUi="bg-emptracky-blue text-emptracky-fd w-full text-xl" />
+            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Don't have an account?
               <span className="text-emptracky-blue text-decoration-line: underline hover:cursor-pointer w-fit transition-all duration-200 ml-2" onClick={() => navigate("/register")}>
                 Register here!
               </span>

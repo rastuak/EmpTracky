@@ -48,7 +48,7 @@ const EditEmployeeModal = ({ isVisible, onClose, id }) => {
 
   return (
     <div onClick={handleClose} id='wrapper' className='fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
-      <div className='w-[85%] md:w-3/5 lg:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
+      <div className='w-[75%] md:w-35 lg:w-2/5 h-fit bg-emptracky-darkgray rounded-xl p-4 text-emptracky-fd'>
         <div className='w-full h-fit flex'>
           <button onClick={() => onClose()} className='w-fit'>
             <Backspace size={24} />

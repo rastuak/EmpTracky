@@ -29,7 +29,7 @@ const DeleteEmployeeModal = ({ isVisible, onClose }) => {
                     <p className='text-xl mb-6'>Are you sure want to Logout?</p>
                     <div className='w-full flex justify-center items-center gap-4'>
                         <Button title="Cancel" onClick={onClose} styleUi="bg-emptracky-blue w-1/2 h-full text-lg"/>
-                        <Button title="Logout Now!" onClick={handleLogout} styleUi="bg-emptracky-red w-1/2 h-full text-lg"/>
+                        <Button title="Logout Now" onClick={handleLogout} styleUi="bg-emptracky-red w-1/2 h-full text-lg"/>
                     </div>
                 </div>
             </div>

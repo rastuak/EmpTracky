@@ -51,7 +51,7 @@ export default function EmployeeInfoPage() {
       <DashboardElement>
         <div className="flex flex-col w-full h-[27%] bg-gradient-to-r from-[#00366B] to-[#6CABC6] px-2 md:px-14 pt-5 pb-3 justify-center items-end">
           <div className="text-emptracky-fd text-lg font-medium w-full">
-            <h1 className="text-lg md:text-5xl font-semibold text-end">{data.name}</h1>
+            <h1 className="text-xl md:text-3xl font-semibold text-end">{data.name}</h1>
             <div className="text-sm md:text-2xl flex gap-2 justify-end items-center">
               <p>{togglePhone ? ("*").repeat(data.phone.length) : data.phone}</p>
               <button onClick={() => setTogglePhone(!togglePhone)}>

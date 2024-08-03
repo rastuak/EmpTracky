@@ -75,7 +75,7 @@ export default function AddEmployeePage() {
         <div className='flex flex-col md:flex-row gap-2 w-full justify-between'>
           <div className='w-full'>
             <h1>Gender :</h1>
-            <select onChange={(e) => setGender(e.target.value)} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2 focus:ring-4 focus:ring-inherit focus:ring-emptracky-blue'>
+            <select onChange={(e) => setGender(e.target.value)} className='border border-emptracky-darkgray w-full rounded-md h-8 bg-emptracky-fd px-2 '>
               <option>Male</option>
               <option>Female</option>
             </select>
@@ -83,7 +83,7 @@ export default function AddEmployeePage() {
           <TextInputEmployee title="Birthdate :" setValue={setBirth} type="date" space={false}/>
         </div>
         <TextInputEmployee title="Salary :" setValue={setSalary} type="number" space={false}/>
-        <TextInputEmployee title="Contract :" setValue={setContract} type="number" space={false}/>
+        <TextInputEmployee title="Contract Expiry Year:" setValue={setContract} type="number" space={false}/>
         <TextInputEmployee title="Phone Number :" setValue={setPhone} type="number" space={false}/>
         <div className='mt-[3%] md:mt-[35%] lg:mt-[8%]'>
           <Button title="Add Employee" onClick={handleAddEmployee} styleUi="w-full bg-emptracky-blue text-emptracky-fd" />

@@ -43,7 +43,7 @@ const DeleteEmployeeModal = ({ isVisible, onClose, id }) => {
         </div>
         <div className='w-full h-full mt-10 text-center justify-center items-center'>
           <p className='text-lg md:text-xl mb-4'>Are you sure want to delete this employee?</p>
-          <Button onClick={handleDeleteEmployee} title="Delete permanently" styleUi="bg-emptracky-red text-emptracky-f1 w-full " />
+          <Button onClick={handleDeleteEmployee} title="Delete permanently" styleUi="bg-emptracky-red text-emptracky-f1 w-[80%] " />
           </div>
       </div>
     </div>
