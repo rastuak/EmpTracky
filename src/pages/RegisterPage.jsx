@@ -57,7 +57,7 @@ const RegisterPage = () => {
               <h1 className="text-emptracky-blue font-bold text-2xl md:text-4xl mb-2">Register</h1>
             </div>
             <div>
-              <h1 className="text-emptracky-darkgray text-xl md:text-2xl ">Userame</h1>
+              <h1 className="text-emptracky-darkgray text-xl md:text-2xl ">Username</h1>
               <input onKeyDown={handleSpace} onChange={(e) => setUsername(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue  " />
               <h1 className="text-emptracky-darkgray text-xl md:text-2xl">Email</h1>
               <input onKeyDown={handleSpace} onChange={(e) => setEmail(e.target.value)} className="shadow-md w-full h-12 bg-emptracky-f5 rounded-3xl px-5 outline-emptracky-blue" />

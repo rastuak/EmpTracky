@@ -46,13 +46,13 @@ export default function MyInfoPage() {
           <div className="text-emptracky-fd text-lg font-medium">
             <h1 className="text-xl md:text-3xl font-semibold text-end">{data.username}</h1>
             <div className="text-sm md:text-lg flex gap-2 justify-end items-center">
-            <p>{toggleEmail ? ("*").repeat(data.email.length) : data.email}</p>
+            <p>{toggleEmail ? ("*").repeat((data?.email).length) : data.email}</p>
               <button onClick={() => setToggleEmail(!toggleEmail)}>
                 {toggleEmail ? <EyeSlash size={20} /> : <Eye size={20} />}
               </button>
             </div>
           <div className="text-sm md:text-lg flex gap-2 justify-end items-center">
-            <p>{togglePhone ? ("*").repeat(data.phone.length) : data.phone}</p>
+            <p>{data.phone ? (togglePhone ? ("*").repeat((data?.phone).length) : data.phone) : (togglePhone ? "********" : "set your number") } </p>
               <button onClick={() => setTogglePhone(!togglePhone)}>
                 {togglePhone ? <EyeSlash size={20} /> : <Eye size={20} />}
               </button>
