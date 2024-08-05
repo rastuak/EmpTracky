@@ -52,7 +52,7 @@ export default function MyInfoPage() {
               </button>
             </div>
           <div className="text-sm md:text-lg flex gap-2 justify-end items-center">
-            <p>{togglePhone ? ("*").repeat(String(data.phone).length) : data.phone}</p>
+            <p>{togglePhone ? ("*").repeat(data.phone.length) : data.phone}</p>
               <button onClick={() => setTogglePhone(!togglePhone)}>
                 {togglePhone ? <EyeSlash size={20} /> : <Eye size={20} />}
               </button>
