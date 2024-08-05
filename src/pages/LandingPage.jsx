@@ -26,7 +26,7 @@ const LandingPage = () => {
           <img src={logo} className='w-24'/>
           <h1 className=" font-bold text-[50px] md:text-[64px]">EmpTracky</h1>
         </div>
-        <p className='text-lg md:text-3xl w-4/5 md:w-full'>Mau ngeboost tenaga kerja anda? Gunakan EmpTracky wak</p>
+        <p className='text-lg md:text-3xl w-4/5 md:w-full'>Save time and manage employee more efficiently</p>
 
         <div className='w-full'>
           <button className="shadow-md w-4/5 h-12 bg-emptracky-fd rounded-[50px] mt-7">

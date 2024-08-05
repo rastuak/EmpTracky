@@ -49,7 +49,7 @@ const RegisterPage = () => {
             <img src={logo} />
             <h1 className=" font-bold text-[64px]">EmpTracky</h1>
           </div>
-          <p className='text-3xl'>Save time and manage attendance more efficiently</p>
+          <p className='text-3xl'>Save time and manage employee more efficiently</p>
         </div>
         <div className="relative h-full w-[583px] bg-emptracky-fd rounded-[20px] m-6 space-y-8 flex flex-col">
           <div className="h-full w-full justify-center items-center p-12">

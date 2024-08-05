@@ -58,7 +58,7 @@ export default function LoginPage() {
           </div>
           <div className="flex flex-col gap-3 justify-center items-center mt-12 text-center">
             <Button title="Sign in" onClick={handleLogin} styleUi="bg-emptracky-blue text-emptracky-fd w-full text-xl" />
-            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Dont have an account?
+            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Don't have an account?
               <span className="text-emptracky-blue text-decoration-line: underline hover:cursor-pointer w-fit transition-all duration-200 ml-2" onClick={() => navigate("/register")}>
                 Register here!
               </span>
