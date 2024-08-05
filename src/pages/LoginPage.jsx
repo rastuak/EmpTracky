@@ -20,7 +20,11 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:8000/users/login', {
+      if (username === "" || password === "") {
+        alert("Please fill in all fields")
+        return
+      }
+        const response = await axios.post('http://localhost:8000/users/login', {
         username, password
       })
       if (response.status !== (201)) throw new Error('Failed to login. Check your credentials')
@@ -29,7 +33,7 @@ export default function LoginPage() {
     }
     catch (error) {
       console.error(error)
-      alert(error)
+      alert(error.response.data)
     }
   }
 
@@ -54,7 +58,7 @@ export default function LoginPage() {
           </div>
           <div className="flex flex-col gap-3 justify-center items-center mt-12 text-center">
             <Button title="Sign in" onClick={handleLogin} styleUi="bg-emptracky-blue text-emptracky-fd w-full text-xl" />
-            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Don't have an account?
+            <h1 className="text-emptracky-darkgray text-lg mb-2 ">Dont have an account?
               <span className="text-emptracky-blue text-decoration-line: underline hover:cursor-pointer w-fit transition-all duration-200 ml-2" onClick={() => navigate("/register")}>
                 Register here!
               </span>
@@ -63,9 +67,5 @@ export default function LoginPage() {
         </form>
       </div>
     </div>
-
-
-
-
   );
 }

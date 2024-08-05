@@ -3,7 +3,7 @@ import { House, SignOut, UserCircle, UserPlus } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import line from "../../images/dashboardLine.svg";
 import logo from "../../images/logoDashboard.svg";
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import LogoutModal from "../LogoutModal";
 
 export default function DashboardElement({ children }) {
@@ -11,8 +11,8 @@ export default function DashboardElement({ children }) {
   const navigate = useNavigate();
 
   return (
-    <Fragment>
-      <div className="bg-emptracky-f1 h-screen w-screen font-poppins flex overflow-hidden">
+    <div className="bg-emptracky-f1 w-screen flex justify-center items-center">
+      <div className="bg-emptracky-f1 h-screen w-screen max-w-screen-2xl font-poppins flex overflow-hidden">
         <div className="w-[15%] h-screen py-12 px-4 relative">
           <div className="w-full justify-center items-center h-[90%]">
             <div className="w-full flex justify-center">
@@ -49,6 +49,6 @@ export default function DashboardElement({ children }) {
         </div>
       </div>
       <LogoutModal isVisible={showLogout} onClose={() => setShowLogout(false)} />
-    </Fragment>
+    </div>
   );
 }

@@ -19,6 +19,10 @@ const RegisterPage = () => {
   
   const handleRegister = async (e) => {
     e.preventDefault()
+    if (username === "" || email === "" || password === "" || confirm === "") {
+      alert("Please fill in all fields")
+      return
+    }
     if (password !== confirm) {
       alert("Passwords do not match")
       return
@@ -27,13 +31,13 @@ const RegisterPage = () => {
       const response = await axios.post('http://localhost:8000/users/register', {
         username, email, password
       })
-      if (response.status !== 201) throw new Error('Failed to add user to database.')
+      if (response.status !== 201) throw new Error('Failed to add user to database.');
         navigate("/login")
         console.log(response.data)
     }
     catch (error) {
       console.error(error)
-      alert(error)
+      alert(error.response.data)
     }
   }
 
